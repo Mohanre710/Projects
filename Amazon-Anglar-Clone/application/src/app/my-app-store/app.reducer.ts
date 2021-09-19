@@ -1,15 +1,20 @@
 import { InjectionToken } from "@angular/core";
 import { Action, createReducer, on } from "@ngrx/store";
-import { addItemAction, removeItemAction, updateUser } from "./app.action";
+import { Observable, of } from "rxjs";
+import { addItemAction, NoOp, removeItemAction, updateUser } from "./app.action";
 
 export interface AppState {
     cart: any[],
-    user?: any
+    user?: any,
+    updatedUser: boolean,
+    tempUpdateOnstart:any;
 }
 
 export const initialState:AppState = {
     cart: [],
-    user: 'Guest'
+    user: 'Guest',
+    updatedUser: false,
+    tempUpdateOnstart:"No"
 }
 
 const reducer = createReducer(
@@ -39,13 +44,20 @@ const reducer = createReducer(
         }
     }),
     on(updateUser, (state,action)=>{
-        console.log(action.type)
-        return {
-            ...state,
-            user:action?.user
+        if(action.user=="Guest"){
+            return {
+                ...state,
+                user:action.user,
+                updatedUser: false
+            }
+        }else{
+            return {
+                ...state,
+                user: action.user,
+                updatedUser: true
+            }
         }
     })
-
   );
    
   export function appReducer(state: any, action: Action) {

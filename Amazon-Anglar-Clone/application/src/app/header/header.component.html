@@ -14,10 +14,10 @@
     <div class="header_right_nav">
 
         <!-- Sign In -->
-        <div [routerLink]="['/login']" class="header_right_options">
-            <span class="right_option_line_one">Hello User</span>
-            <span class="right_option_line_two" *ngIf="!signedIn">Sign In</span>
-            <span class="right_option_line_two" *ngIf="signedIn">Sign Out</span>
+        <div class="header_right_options">
+            <span class="right_option_line_one">Hello {{User? User.email:'User'}}</span>
+            <span [routerLink]="['/login']" class="right_option_line_two" *ngIf="!signedIn">Sign In</span>
+            <span (click)="signOut()" class="right_option_line_two" *ngIf="signedIn">Sign Out</span> 
         </div>
 
         <!-- Return & Orders  -->

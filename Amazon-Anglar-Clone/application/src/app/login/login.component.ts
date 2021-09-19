@@ -1,8 +1,11 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 import { auth } from '../firebase';
+import { updateUser } from '../my-app-store/app.action';
+import { appSelectors } from '../my-app-store/app.selector';
 
 @Component({
   selector: 'app-login',
@@ -13,10 +16,8 @@ export class LoginComponent{
 
   email:string='';
   password:string='';
-
-  userData!: Observable<firebase.User>;
-
-  constructor(private router:Router) { 
+  
+  constructor(private router:Router,private store:Store) { 
   }
 
   signIn(event:Event) {
@@ -28,12 +29,6 @@ export class LoginComponent{
     }).catch(error=>alert(error.message));
     
   }
-
-  signOut() {
-    this.email='';
-    this.password='';
-  }
-
 
   signUp(event:Event) {
     event.preventDefault();

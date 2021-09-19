@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Observable, of } from 'rxjs';
 import { auth } from './firebase';
-import { setUser, updateUser } from './my-app-store/app.action';
+import { NoOp, setUser, updateUser } from './my-app-store/app.action';
 import { appSelectors } from './my-app-store/app.selector';
 
 @Component({
@@ -10,12 +11,11 @@ import { appSelectors } from './my-app-store/app.selector';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   title = 'application';
 
   noHeaderPage:boolean = false;
-  signedIn:boolean = false;
-
+  
   constructor(private router:Router, private store:Store){
     router.events.subscribe((event: any)=>{
       if(event instanceof NavigationEnd){
@@ -27,18 +27,4 @@ export class AppComponent implements OnInit{
     });
 
   }
-
-  ngOnInit(): void {
-    auth.onAuthStateChanged(authUser=>{
-      console.log(authUser)
-      if(authUser)
-      {
-          console.log(typeof authUser);
-          this.store.dispatch(updateUser({user: authUser.uid}));
-      }
-    })
-  }
-
-  
-  
 }

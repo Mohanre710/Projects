@@ -35,7 +35,6 @@ export class ProductComponent implements OnInit {
   }
 
   addToBasket() {
-    console.log(this.store.select(appSelectors.getCartDetails).subscribe(cart=>console.log(cart)));
     this.store.dispatch(addItemAction({
       addItem: {
         id: this.id,
