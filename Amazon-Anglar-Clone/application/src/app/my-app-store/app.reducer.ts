@@ -1,7 +1,6 @@
 import { InjectionToken } from "@angular/core";
 import { Action, createReducer, on } from "@ngrx/store";
-import { Observable, of } from "rxjs";
-import { addItemAction, NoOp, removeItemAction, updateUser } from "./app.action";
+import { addItemAction, NoOp, removeAll, removeItemAction, updateUser } from "./app.action";
 
 export interface AppState {
     cart: any[],
@@ -41,6 +40,12 @@ const reducer = createReducer(
         return {
             ...state,
             cart: newCart
+        }
+    }),
+    on(removeAll, (state, action)=>{
+        return {
+            ...state,
+            cart: []
         }
     }),
     on(updateUser, (state,action)=>{

@@ -1,0 +1,14 @@
+<!-- List of basket Items -->
+<div *ngFor="let item of allCartItems" class="checkout_product">
+    <img class="checkout_product_image" src={{item.image}} alt="">
+
+    <div class="checkout_product_info">
+        <p class="checkout_product_title">{{item.title}}</p>
+        <p>
+            <small>$</small>
+            <strong>{{item.price}}</strong>
+        </p>
+
+        <button *ngIf="!hideButton" (click)="removeFromBasket(item.id)">Remove from Cart</button>
+    </div>
+</div>

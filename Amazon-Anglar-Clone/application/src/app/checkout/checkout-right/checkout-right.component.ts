@@ -11,10 +11,14 @@ export class CheckoutRightComponent implements OnInit {
 
   subTotalLength!:number;
   subTotalPrice:number=0;
+  user:any;
 
   constructor(private store: Store) { 
     this.store.select(appSelectors.getCartLength)
       .subscribe(length => this.subTotalLength = length);
+	
+	this.store.select(appSelectors.getUser)
+	.subscribe(user => this.user = user)
 
     this.store.select(appSelectors.getCartPrice)
       .subscribe(cartPrice => this.subTotalPrice = cartPrice);

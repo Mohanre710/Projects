@@ -15,13 +15,13 @@
 
         <!-- Sign In -->
         <div class="header_right_options">
-            <span class="right_option_line_one">Hello {{User? User.email:'User'}}</span>
+            <span class="right_option_line_one">Hello {{User? User:'User'}}</span>
             <span [routerLink]="['/login']" class="right_option_line_two" *ngIf="!signedIn">Sign In</span>
             <span (click)="signOut()" class="right_option_line_two" *ngIf="signedIn">Sign Out</span> 
         </div>
 
         <!-- Return & Orders  -->
-        <div class="header_right_options">
+        <div [routerLink]="['/orders']" class="header_right_options">
             <span class="right_option_line_one">Returns</span>
             <span class="right_option_line_two">& Orders</span>
         </div>

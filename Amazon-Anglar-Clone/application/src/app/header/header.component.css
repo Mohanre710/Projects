@@ -55,6 +55,7 @@
 .right_option_line_two {
     font-size: 13px;
     font-weight: 800;
+    cursor: pointer;
 }
 
 .header_cart {

@@ -28,16 +28,18 @@ export class HeaderComponent implements OnChanges {
     this.store.select(appSelectors.getCartLength).subscribe(length=>this.cartLength = length);
 
     auth.onAuthStateChanged(authUser=>{
-      console.log(authUser)
       if(authUser){
         this.signedIn = true
-        this.store.dispatch(updateUser({user: authUser.uid}))
-        this.User = authUser
+        this.store.dispatch(updateUser({user: authUser.toJSON()}))
+        this.User = authUser.email;
+        console.log(this.User);
       }
       else{
         this.signedIn = false
         this.store.dispatch(updateUser({user: "Guest"}))
+        this.User = "Guest"
       }
+      
     })
   }
 

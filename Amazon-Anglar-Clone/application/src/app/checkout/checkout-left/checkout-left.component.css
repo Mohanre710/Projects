@@ -8,35 +8,3 @@
     padding: 10px;
     border-bottom: 1px solid lightgray;
 }
-
-/* Checkout products css */
-
-.checkout_product {
-    display: flex;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.checkout_product_info {
-    padding-left: 20px;
-}
-
-.checkout_product_title {
-    font-size: 13px;
-    font-weight: 800;
-}
-
-.checkout_product_image {
-    min-width: 180px;
-    max-width: 180px;
-    max-height: 180px;
-    object-fit: contain;
-}
-
-.checkout_product button {
-    background: #f0c14b;
-    border: 1px solid;
-    margin-top: 10px;
-    border-color: #a88734 #9c7e31 #846a29;
-    color: #111;
-}

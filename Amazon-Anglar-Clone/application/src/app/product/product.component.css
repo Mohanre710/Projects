@@ -17,6 +17,12 @@
     min-width: 100px;
     background-color: white;
     z-index: 1;
+    cursor: pointer;
+	border-radius: 7px;
+}
+
+.product:hover{
+	box-shadow: 0 3px 10px #111;
 }
 
 .product_info {

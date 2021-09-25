@@ -7,6 +7,6 @@
             <input type="checkbox"> This Order contains a gift
         </small>
 
-        <button>Proceed to Checkout</button>
+        <button [disabled]="subTotalPrice==0" [routerLink]="['/payment']">Proceed to Checkout</button>
     </div>
 </div>

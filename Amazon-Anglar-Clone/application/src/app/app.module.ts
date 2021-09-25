@@ -15,6 +15,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProductComponent } from './product/product.component';
 import { MyAppStoreModule } from './my-app-store/my-app-store.module';
 import { EffectsModule } from '@ngrx/effects';
+import { PaymentComponent } from './payment/payment.component';
+import { HttpClientModule } from '@angular/common/http';
+import { OrdersComponent } from './orders/orders.component';
+import { CheckoutProductComponent } from './checkout/checkout-product/checkout-product.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,10 @@ import { EffectsModule } from '@ngrx/effects';
     CheckoutComponent,
     CheckoutRightComponent,
     CheckoutLeftComponent,
-    LoginComponent
+    LoginComponent,
+    PaymentComponent,
+    OrdersComponent,
+    CheckoutProductComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +40,7 @@ import { EffectsModule } from '@ngrx/effects';
     FormsModule,
     FontAwesomeModule,
     MyAppStoreModule,
+    HttpClientModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
   ],

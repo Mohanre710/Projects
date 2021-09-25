@@ -11,20 +11,20 @@ import { removeItemAction } from 'src/app/my-app-store/app.action';
 })
 export class CheckoutLeftComponent implements OnInit {
 
-  allCartItems!: any[];
+  
+  emailId: any
 
   faStar = faStar;
   faStarHalf = faStarHalf;
+  allCartItems!: any[];
 
   constructor(private store:Store) { 
     this.store.select(appSelectors.getCartDetails)
-      .subscribe(cartItems => this.allCartItems = cartItems);
+    .subscribe(cartItems => this.allCartItems = cartItems);
+
+    this.store.select(appSelectors.getUser).subscribe(user => this.emailId = user.email);
   }
 
   ngOnInit(): void {
-  }
-
-  removeFromBasket(removeId: number) {
-    this.store.dispatch(removeItemAction({id: removeId}));
   }
 }

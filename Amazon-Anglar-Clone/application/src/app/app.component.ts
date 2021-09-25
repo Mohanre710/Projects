@@ -1,10 +1,7 @@
 import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
-import { auth } from './firebase';
-import { NoOp, setUser, updateUser } from './my-app-store/app.action';
-import { appSelectors } from './my-app-store/app.selector';
+import { loadStripe } from '@stripe/stripe-js';
 
 @Component({
   selector: 'app-root',

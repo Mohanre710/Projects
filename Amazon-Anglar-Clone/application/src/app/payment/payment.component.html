@@ -1,0 +1,49 @@
+<div class="payment">
+    <div class="payment_container">
+        <h1>Checkout(<a>{{allCartItems.length}} items</a>)</h1>
+        <div class="payment_section">
+            <div class="payment_title">
+                <h3>Delivery Address</h3>
+            </div>
+            <div class="payment_address">
+                <p>{{user?.email}}</p>
+                <p>36/226-51-1, Srinivasa Nagar, ChinnaChowk</p>
+                <p>Kadapa, Andhra Pradesh - 516002.</p>
+            </div>
+        </div>
+
+        <div class="payment_section">
+            <div class="payment_title">
+                <h3>Review Items and Delivery</h3>
+            </div>
+            <app-checkout-product [allCartItems]="allCartItems"></app-checkout-product>
+        </div>
+
+        <div class="payment_section">
+            <div class="payment_title">
+                <h3>Payment Method</h3>
+            </div>
+            <div class="payment_details">
+                <form id="payment-form">
+                    <div class="form-row">
+                        <label for="card-element">
+                            Credit or debit card
+                        </label>
+                        <div id="card-element">
+                            <!-- a Stripe Element will be inserted here. -->
+                        </div>
+                        <!-- Used to display form errors -->
+                        <div id="card-errors" role="alert"></div>
+                        <div class="payment_price_container">
+                            <strong>Order Total: {{subTotalPrice| currency:'USD':'symbol':'.2-2'}}</strong>
+                        </div>
+                        <button (click)="handleSubmit($event)">
+                            <span>Submit Payment</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -3,22 +3,8 @@
     alt=""/>
 
     <div>
+        <h3 class="checkout_title">Hello {{emailId? emailId: 'Guest'}}</h3>
         <h2 class="checkout_title">Your shopping Basket</h2>
-
-        <!-- List of basket Items -->
-        <div *ngFor="let item of allCartItems" class="checkout_product">
-            <img class="checkout_product_image" src={{item.image}} alt="">
-
-            <div class="checkout_product_info">
-                <p class="checkout_product_title">{{item.title}}</p>
-                <p>
-                    <small>$</small>
-                    <strong>{{item.price}}</strong>
-                </p>
-
-                <button (click)="removeFromBasket(item.id)">Remove from Cart</button>
-            </div>
-        </div>
-
+        <app-checkout-product [allCartItems]="allCartItems"></app-checkout-product>
     </div>
 </div>

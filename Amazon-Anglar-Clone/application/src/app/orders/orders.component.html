@@ -1,0 +1,12 @@
+<div class="orders">
+    <h1> Your Orders</h1>
+    <div class="orders_order">
+        <div class="order" *ngFor="let order of orders">
+            <h2>Order</h2>
+            <p>{{createDate(order.data.created) | date: 'MMM d, y, h:mm:ss'}}</p>
+            <p class="order_id">{{order.id}}</p>
+            <app-checkout-product [hideButton]="hideButton" [allCartItems]="order.data.cart"></app-checkout-product>        
+            <h3 class="order_total">Order Total: {{order.data.amount/100 | currency:'USD':'symbol':'.2-2'}}</h3>
+        </div>
+    </div>
+</div>
