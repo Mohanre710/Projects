@@ -1,0 +1,12 @@
+<div class="checkout_right">
+    <div class="subtotal">
+        <p> Subtotal ({{subTotalLength}} items): 
+            <strong>{{subTotalPrice| currency:'INR':'symbol':'.2-2'}}</strong>
+        </p>
+        <small class="subtotal_gift">
+            <input type="checkbox"> This Order contains a gift
+        </small>
+
+        <button [disabled]="subTotalPrice==0" [routerLink]="['/payment']">Proceed to Checkout</button>
+    </div>
+</div>

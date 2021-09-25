@@ -1,0 +1,42 @@
+<div class="header">
+    <!-- Logo -->
+    <img [routerLink]="['/home']" class="header_logo" src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"/>
+    
+    <!-- Search bar -->
+    <div class="header_search">
+        <input class="header_search_input" type="text">
+
+        <!-- Search Logo -->
+        <fa-icon class="header_search_icon" [icon]="faSearch"></fa-icon>
+    </div>
+
+    <!-- Nav options right side of Search bar -->
+    <div class="header_right_nav">
+
+        <!-- Sign In -->
+        <div class="header_right_options">
+            <span class="right_option_line_one">Hello {{User? User:'User'}}</span>
+            <span [routerLink]="['/login']" class="right_option_line_two" *ngIf="!signedIn">Sign In</span>
+            <span (click)="signOut()" class="right_option_line_two" *ngIf="signedIn">Sign Out</span> 
+        </div>
+
+        <!-- Return & Orders  -->
+        <div [routerLink]="['/orders']" class="header_right_options">
+            <span class="right_option_line_one">Returns</span>
+            <span class="right_option_line_two">& Orders</span>
+        </div>
+
+        <!-- Amazon Prime -->
+        <div class="header_right_options">
+            <span class="right_option_line_one">Amazon</span>
+            <span class="right_option_line_two">Prime</span>
+        </div>
+
+        <!-- Cart -->
+        <div [routerLink]="['/checkout']" class="header_cart">
+            <fa-icon style="color: white;" [icon]="faShoppingCart"></fa-icon>
+            <span class="right_option_line_two cart_count">{{cartLength}}</span>
+        </div>
+        
+    </div>
+</div>
