@@ -1,12 +1,10 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { loadStripe, StripeAuBankAccountElement, StripeCardElement, StripeElement, StripeElements } from '@stripe/stripe-js';
-import axios from '../axios';
-import { useEffect, useState } from 'react';
+import { loadStripe, StripeCardElement, StripeElements } from '@stripe/stripe-js';
 import { appSelectors } from '../my-app-store/app.selector';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { removeAll, removeItemAction } from '../my-app-store/app.action';
+import { HttpClient } from '@angular/common/http';
+import { removeAll } from '../my-app-store/app.action';
 import { db } from '../firebase';
 
 const stripe = loadStripe(
@@ -33,9 +31,12 @@ export class PaymentComponent implements OnInit {
      
     this.store.select(appSelectors.getCartPrice)
     .subscribe(cartPrice => this.subTotalPrice = cartPrice);
+
+	this.store.select(appSelectors.getUser)
+    .subscribe(user => this.user = user);
+
     stripe.then(stripe=> {if(stripe!=null)
       this.elements = stripe.elements()
-      let self =this
       this.card = this.elements.create('card',{hidePostalCode:true});
       this.card.mount('#card-element');
       this.card.on('change', function(event) {
@@ -55,7 +56,6 @@ export class PaymentComponent implements OnInit {
         this.http.post<any>(`https://us-central1-angular-clone-12437.cloudfunctions.net/api/payments/create?total=${this.subTotalPrice * 100}`,{})
         .subscribe(response => {
           this.clientSecret = response.clientSecret
-          console.log(this.clientSecret)
         });
       }
    }

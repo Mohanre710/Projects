@@ -23,7 +23,6 @@ app.get("/", (request, response) => response.status(200).send("welcome"));
 
 app.post("/payments/create", async (request, response) => {
 	const total = request.query.total;
-	console.log("payment request received: ", total);
 	try {
 		await stripe.customers.create({
 			name: "Mohan",

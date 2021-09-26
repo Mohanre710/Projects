@@ -28,10 +28,6 @@ export class OrdersComponent implements OnInit {
               id: doc.id,
               data: doc.data()
             }))
-            console.log(this.orders)
-            this.orders.forEach(element => {
-              console.log(element.data)
-            });
           })
         }
         else{

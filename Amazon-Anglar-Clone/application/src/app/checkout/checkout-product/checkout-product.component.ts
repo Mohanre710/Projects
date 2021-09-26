@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { removeItemAction } from 'src/app/my-app-store/app.action';
-import { appSelectors } from 'src/app/my-app-store/app.selector';
 
 @Component({
   selector: 'app-checkout-product',
