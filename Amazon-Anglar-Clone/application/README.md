@@ -7,6 +7,7 @@ The application is my way of Amazon - It has all the functionalities like _signI
 
 # Hosting
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
 The project is live and runnig at [Angular Clone](https://angular-clone-12437.web.app)
 _I used firebase to deploy both cloud functions and Application._
 
