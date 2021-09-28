@@ -9,6 +9,11 @@
 
 .checkout_product_info {
     padding-left: 20px;
+	margin-left: 20px;
+}
+
+.checkout_product_info p{
+	margin-bottom: 17px;
 }
 
 .checkout_product_title {
@@ -17,9 +22,9 @@
 }
 
 .checkout_product_image {
-    min-width: 180px;
-    max-width: 180px;
-    max-height: 180px;
+    min-width: 200px;
+    max-width: 200px;
+    max-height: 200px;
     object-fit: contain;
 }
 

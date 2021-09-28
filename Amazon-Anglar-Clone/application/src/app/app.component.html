@@ -3,6 +3,18 @@
   <app-header  *ngIf="!noHeaderPage"></app-header>
 
   <router-outlet></router-outlet>
+
+  <div *ngIf="!noHeaderPage" class="notice_details">
+	<div class="notice">
+		<a href="">Conditions of use</a>  
+		<a href="">Privacy Notice</a>
+		<a href="">Help</a>
+	</div>
+	<p>
+		<fa-icon [icon]="faGithub"></fa-icon> <a href="https://github.com/Mohanre710/Projects/tree/main/Amazon-Anglar-Clone/application"> Mohan's(My) github Profile</a>
+	</p>
+	<p>All the images in the project are taken from internet. I have no right on the images. But the name of products and their tag lines are mostly mine</p>
+</div>
 </div>
 
 

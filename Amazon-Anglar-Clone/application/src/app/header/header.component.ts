@@ -36,7 +36,6 @@ export class HeaderComponent {
         this.store.dispatch(updateUser({user: "Guest"}))
         this.User = "Guest"
       }
-      
     })
   }
 

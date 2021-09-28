@@ -1,20 +1,19 @@
 :host(app-product) {
     flex: 1 1 0;
-	height: 450px;
+	width: 250px;
 	z-index: 1;
 	transition: all 0.4s ease-in-out;
 }
 
 :host(app-product):hover {
 	transform: scale(0.95, 0.95);
-	top: 0px;
+	box-shadow: 0 5px 10px #111;
+	border-radius: 7px;
 }
 
 .product {
     display: flex;
     flex-direction: column;
-	align-items: center;
-	margin: auto;
     margin: 10px;
     padding: 20px;
     background-color: white;
@@ -26,7 +25,8 @@
 
 .product_info {
     margin-bottom: 15px;
-	height: 17vh;
+	height: 15vh;
+	font-weight: bold;
 }
 
 .product_price {
@@ -44,7 +44,7 @@
 }
 
 .product img {
-	height: 200px;
+	height: 125px;
     object-fit: contain;
     margin-left: 10px;
 }
@@ -53,6 +53,8 @@
     background: #f0c14b;
     border: 1px solid;
     margin-top: 20px;
+	align-self: center;
+	width: fit-content;
     padding: 4px 10px;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
