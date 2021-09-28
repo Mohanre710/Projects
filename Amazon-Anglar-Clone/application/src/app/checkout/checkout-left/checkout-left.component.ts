@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
 import { appSelectors } from 'src/app/my-app-store/app.selector';
-import { removeItemAction } from 'src/app/my-app-store/app.action';
 
 @Component({
   selector: 'app-checkout-left',

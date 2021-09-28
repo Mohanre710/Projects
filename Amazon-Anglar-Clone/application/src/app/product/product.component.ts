@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { faStar,faStarHalf } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
 import { addItemAction } from '../my-app-store/app.action';
-import { appSelectors } from '../my-app-store/app.selector';
 
 @Component({
   selector: 'app-product',

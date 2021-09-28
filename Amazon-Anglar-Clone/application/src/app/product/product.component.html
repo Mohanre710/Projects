@@ -1,28 +1,25 @@
 <div class="product">
+	<!-- Contains Block View Product Info-->
+	<div class="product_info">
+		<p>{{title}}</p>
 
-    <!-- Contains Block View Product Info-->
-    <div class="product_info">
-        <p>{{title}}</p>
+		<!-- Product Price -->
+		<p class="product_price">
+			<small>$</small>
+			<strong>{{price}}</strong>
+		</p>
 
-        <!-- Product Price -->
-        <p class="product_price">
-            <small>$</small>
-            <strong>{{price}}</strong>
-        </p>
+		<!-- product Rating -->
+		<div class="product_rating">
+			<p>
+				<fa-icon *ngFor="let rating of ratingFull" class="rating_icon" [icon]="faStar"></fa-icon>
+				<fa-icon *ngIf="ratingHalf" class="rating_icon" [icon]="faStarHalf"></fa-icon>
+				<small class="rating_value">{{rating}}</small>
+			</p>
+		</div>
+	</div>
 
-        <!-- product Rating -->
-        <div class="product_rating">
-            <p>
-                <fa-icon *ngFor="let rating of ratingFull" class="rating_icon" [icon]="faStar"></fa-icon>
-                <fa-icon *ngIf="ratingHalf" class="rating_icon" [icon]="faStarHalf"></fa-icon>
-                <small class="rating_value">{{rating}}</small>
-            </p>
-        </div>
-    </div>
-
-    <!-- Image for the product -->
-    <img src={{image}} alt=""/>
-
-    <button (click)="addToBasket()">Add to Cart</button>
-
+	<!-- Image for the product -->
+	<img src={{image}} alt="" />
+	<button (click)="addToBasket()">Add to Cart</button>
 </div>
